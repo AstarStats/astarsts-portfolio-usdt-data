@@ -1,0 +1,27 @@
+type Transfer @entity {
+  id: ID! # Tx hash
+
+  from: String!
+
+  to: String!
+
+  contractAddress: String!
+
+  amount: BigInt!
+  
+  blockNumber: BigInt!
+}
+
+type Wallet @entity {
+  id: ID! # wallet ID
+
+  transaction: [Transaction]!
+}
+
+type Transaction @jsonField {
+  amount: String! # number string
+
+  timestamp: Date!
+
+  txhash: String!
+}
