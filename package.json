@@ -4,7 +4,7 @@
   "description": "This SubQuery project can be use as a starting point for Astar network",
   "main": "dist/index.js",
   "scripts": {
-    "build": "./node_modules/.bin/subql build",
+    "build": "tsc -b",
     "prepack": "rm -rf dist && npm build",
     "test": "jest",
     "codegen": "./node_modules/.bin/subql codegen"
@@ -16,18 +16,23 @@
     "schema.graphql",
     "project.yaml"
   ],
-  "author": "Scott Twiname",
-  "license": "MIT",
-  "devDependencies": {
-    "@polkadot/api": "^7",
-    "@subql/cli": "latest",
-    "@subql/types": "latest",
-    "typescript": "^4.1.3"
+  "author": "AstarStats",
+  "license": "Apache-2.0",
+  "resolutions": {
+    "@polkadot/api": "^7.12.1",
+    "@polkadot/types": "^7.12.1",
+    "@polkadot/util": "^8.5.1",
+    "ipfs-unixfs": "6.0.6"
   },
   "exports": {
-    "chaintypes": "src/chaintypes.ts"
+    "chaintypes": "./src/chaintypes.ts"
   },
-  "dependencies": {
-    "@subql/contract-processors": "^0.5.0"
+  "devDependencies": {
+    "@subql/node": "^1.0.0",
+    "@subql/query": "^1.0.0",
+    "@subql/cli": "^0.16.2",
+    "@subql/contract-processors": "0.5.3",
+    "@subql/types": "^0.14.0",
+    "typescript": "^4.6.2"
   }
 }
