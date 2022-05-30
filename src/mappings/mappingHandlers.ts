@@ -53,8 +53,7 @@ export async function handleERC20Transfer(event: MoonbeamEvent<TransferEventArgs
  * @returns wallet entity
  */
 async function extractEventAsWalletAsset(_walletID: string, _value: bigint, _timestamp: Date, txhash: string): Promise<Wallet>{
-    let entity = new Wallet(_walletID);
-    entity = await Wallet.get(_walletID);
+    let entity = await Wallet.get(_walletID);
     if (undefined === entity){
         //  {_walletID} is not registerd at database
         entity = createWallet(_walletID);
